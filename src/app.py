@@ -1,4 +1,3 @@
-from products import products
 from flask import Flask, jsonify, request, Response
 from flask_pymongo import PyMongo
 from bson import json_util
@@ -7,11 +6,6 @@ app = Flask(__name__)
 app.config['MONGO_URI'] = 'mongodb://localhost/pythonmongodb'
 
 mongo = PyMongo(app)
-
-
-@app.route('/ping', methods=['GET'])
-def ping():
-    return jsonify({"message": "pong"})
 
 
 @app.route('/products', methods=['GET'])
